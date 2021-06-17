@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("Thank you for coding interview")
+        print("Thank you")
         buttonDesign()
     }
     
