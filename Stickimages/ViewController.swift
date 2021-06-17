@@ -81,7 +81,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIImagePickerContr
         //Checking if the images are empty before the merge
         if (LeftImage != nil && RightImage != nil){
             LeftImage!.draw(in: areaSize)
-            RightImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.7)
+            RightImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.8)
         }else{
             showErrorAlert()
         }
