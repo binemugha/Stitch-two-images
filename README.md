@@ -10,15 +10,18 @@ https://github.com/binemugha/Stitch-two-images.git
 ```
 
 ##  App feature
-- User able to select two images and merge them.
-- User able to view the merged image.
+- User is able to select two images and merge them.
+- User is able to view the merged image.
+- User is able to save the merged image locally
 
 
 ## Up-coming features
-- User able to select multiple images and merge.
-- User can select the blend opacity and direction.
+- User will able to select multiple images and merge.
+- User will be able to select the blend opacity and direction.
 
 
 ## Walkthrough
 
-![Image Walkthrough](screenshot.png)
+![Image Walkthrough](screenshot1.png)
+![Image Walkthrough](screenshot2.png)
+![Image Walkthrough](screenshot3.png)
