@@ -73,28 +73,34 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIImagePickerContr
         let LeftImage = self.imageViewLeft.image
         let RightImage = self.imageViewRight.image
 
-        let size = CGSize(width: self.combinedImage.frame.size.width, height: self.combinedImage.frame.size.height)
-        UIGraphicsBeginImageContext(size)
-
-        let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
      
         //Checking if the images are empty before the merge
         if (LeftImage != nil && RightImage != nil){
+            let size = CGSize(width: self.combinedImage.frame.size.width, height: self.combinedImage.frame.size.height)
+            UIGraphicsBeginImageContext(size)
+
+            let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+            
+            
             LeftImage!.draw(in: areaSize)
-            RightImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.8)
+            RightImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.82)
+            
+            let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            self.combinedImage.image = newImage
         }else{
             showErrorAlert()
         }
-
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        self.combinedImage.image = newImage
     }
     
     @IBAction func savePhoto(_ sender: Any) {
-        let imageData = combinedImage.image?.pngData()
-        let compressedImage = UIImage(data: imageData!)
-        UIImageWriteToSavedPhotosAlbum(compressedImage!, self, #selector(completeSaved), nil)
+        if combinedImage.image != nil{
+            let imageData = combinedImage.image?.pngData()
+            let compressedImage = UIImage(data: imageData!)
+            UIImageWriteToSavedPhotosAlbum(compressedImage!, self, #selector(completeSaved), nil)
+        }else{
+            showRandomErrorAlert()
+        }
     }
     
     //Helper
