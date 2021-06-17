@@ -12,12 +12,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIImagePickerContr
     @IBOutlet weak var imageViewLeft: UIImageView!
     @IBOutlet weak var imageViewRight: UIImageView!
     @IBOutlet weak var combinedImage: UIImageView!
+    @IBOutlet weak var stitchButton: UIButton!
     
+    @IBOutlet weak var saveButton: UIButton!
     var flag = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("Thank you for coding interview")
+        buttonDesign()
+    }
+    
+    func buttonDesign(){
+        stitchButton.layer.cornerRadius = 10
+        saveButton.layer.cornerRadius = 10
     }
     
     //Choosing Left and Right Images Button
@@ -69,13 +77,49 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIImagePickerContr
         UIGraphicsBeginImageContext(size)
 
         let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        LeftImage!.draw(in: areaSize)
-
-        RightImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.7)
+     
+        //Checking if the images are empty before the merge
+        if (LeftImage != nil && RightImage != nil){
+            LeftImage!.draw(in: areaSize)
+            RightImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.7)
+        }else{
+            showErrorAlert()
+        }
 
         let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         self.combinedImage.image = newImage
+    }
+    
+    @IBAction func savePhoto(_ sender: Any) {
+        let imageData = combinedImage.image?.pngData()
+        let compressedImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compressedImage!, self, #selector(completeSaved), nil)
+    }
+    
+    //Helper
+    @objc func completeSaved(_ imageData:UIImage, error:Error?, context:UnsafeMutableRawPointer?){
+        
+        if let err = error {
+            showRandomErrorAlert()
+            print(err)
+            return
+        }
+        let alert = UIAlertController(title: "Saved", message: "The Image has been saved", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Error", message: "Please select two images", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showRandomErrorAlert(){
+        let alert = UIAlertController(title: "Error", message: "There was an error", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
