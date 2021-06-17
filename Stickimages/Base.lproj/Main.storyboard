@@ -1,24 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C3b-oJ-1m2">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Stitch Images-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Stickimages" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4bZ-gg-9wU">
+                                <rect key="frame" x="20" y="104" width="177" height="198"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="198" id="fi3-4q-dsZ"/>
+                                    <constraint firstAttribute="width" constant="177" id="mTt-x3-d7a"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAA-C1-D7m">
+                                <rect key="frame" x="217" y="104" width="177" height="198"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="177" id="B5k-Nl-zkU"/>
+                                    <constraint firstAttribute="height" constant="198" id="qAy-oe-E6W"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqM-tw-ipP">
+                                <rect key="frame" x="155" y="436" width="114" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Stitch Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="stitchImages:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1AC-aQ-vJr"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jt1-e1-nwf">
+                                <rect key="frame" x="53" y="538" width="310" height="257"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="UHi-5z-ozd"/>
+                                    <constraint firstAttribute="height" constant="257" id="gIE-AA-QjD"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bAA-C1-D7m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="0Hw-d2-hzf"/>
+                            <constraint firstItem="tqM-tw-ipP" firstAttribute="top" secondItem="4bZ-gg-9wU" secondAttribute="bottom" constant="134" id="9kn-yO-VHg"/>
+                            <constraint firstItem="4bZ-gg-9wU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Kqw-kt-ucs"/>
+                            <constraint firstItem="tqM-tw-ipP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="155" id="NMn-r5-E7J"/>
+                            <constraint firstItem="Jt1-e1-nwf" firstAttribute="top" secondItem="tqM-tw-ipP" secondAttribute="bottom" constant="66" id="Ocm-xA-bUD"/>
+                            <constraint firstItem="4bZ-gg-9wU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="TNn-5F-i0q"/>
+                            <constraint firstItem="Jt1-e1-nwf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="53" id="aKO-dS-BsW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jt1-e1-nwf" secondAttribute="trailing" constant="51" id="fBo-13-8MV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tqM-tw-ipP" secondAttribute="trailing" constant="145" id="lk2-fD-Osu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bAA-C1-D7m" secondAttribute="trailing" constant="20" id="sfl-bu-aA3"/>
+                            <constraint firstItem="bAA-C1-D7m" firstAttribute="leading" secondItem="4bZ-gg-9wU" secondAttribute="trailing" constant="20" id="tlo-DT-L59"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Stitch Images" id="UTx-bT-MLL">
+                        <barButtonItem key="leftBarButtonItem" title="Left Image" id="CCK-cU-oJY">
+                            <connections>
+                                <action selector="openPhotoLibraryLeft:" destination="BYZ-38-t0r" id="BGb-R6-Idq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Right Image" id="3wk-G1-IRN">
+                            <connections>
+                                <action selector="openPhotoLibrary:" destination="BYZ-38-t0r" id="sbd-Lt-hhK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="combinedImage" destination="Jt1-e1-nwf" id="Z4a-EO-Jmr"/>
+                        <outlet property="imageViewLeft" destination="4bZ-gg-9wU" id="tNI-pU-AgG"/>
+                        <outlet property="imageViewRight" destination="bAA-C1-D7m" id="reo-6s-eUY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="760.86956521739137" y="56.919642857142854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L59-fN-u4L">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C3b-oJ-1m2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xp6-kn-Xcq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BJD-lO-0i7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ceq-kh-O8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-149.27536231884059" y="56.919642857142854"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
